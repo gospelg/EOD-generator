@@ -8,7 +8,7 @@ stuff in on a calculator.
 Here is an example EOD (end of day report)
 
 
-#start example#
+#Example Eod
 Start Miles: 119,641
 End Miles: 119,666
 TOTAL: 25
@@ -19,6 +19,7 @@ Performed general maintenance on 2 pc's.
 
 From Ellison house to shop: 119,653 - 119,666 (13 miles) 16:14 - 16:37 (23 minutes) <- travel.
 
+#
 As of version one, this program can query for user input and generate a simple report such as this, but many times I have to make
 several trips, sometimes from one site to the next without coming back to the shop.
 
