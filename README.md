@@ -18,7 +18,6 @@ From shop to Ellison house: 119,641 - 119,653 (12 miles) 12:12 - 12:32 (20 minut
 Performed general maintenance on 2 pc's.
 
 From Ellison house to shop: 119,653 - 119,666 (13 miles) 16:14 - 16:37 (23 minutes) <- travel.
-#end example#
 
 As of version one, this program can query for user input and generate a simple report such as this, but many times I have to make
 several trips, sometimes from one site to the next without coming back to the shop.
