@@ -10,6 +10,7 @@ def sheet1():
     answer = input("y/n? ").lower()
     
     if answer == "y": 
+        global rsheet
         rsheet = input("Enter your routersheet info")
         sheet2()
     
@@ -22,6 +23,7 @@ def sheet2():
     answer = input("y/n? ").lower()
     
     if answer == "y":
+        global csheet
         csheet = input("Enter your contactsheet info ")
         notesheet()
 
@@ -33,6 +35,7 @@ def notesheet():
     answer = input("y/n? ").lower()
     
     if answer == "y":
+        global notes
         notes = input("Add your notes now /n")
         mathisfun()
     else:
@@ -50,7 +53,7 @@ def time_calc(hours1, minutes1, hours2, minutes2):
         total_h -= 1
         total_m = 60 - abs(total_m)
 
-    trip_time = str(total_h) + " hours " +  str(total_m) + " minutes "
+    trip_time = str(total_h) + " hours " +  str(total_m) + " minutes"
     return trip_time
 
 def mathisfun():
@@ -74,7 +77,19 @@ def mathisfun():
 
     global point_BC
     point_BC = time_calc(th3, tm3, th4, tm4)
+   
+    global time_on
+    time_on = time_calc(th2, tm2, th3, tm3)    
 
+    global allthedata 
+    allthedata = (trip_a, trip_b, time_on, totalmiles)
+
+#will tally up and print some totals
+
+#def totals():
+#    print ("Starting miles: " + startmiles)
+#    print ("Ending miles: " + homemiles)
+#    print ("TOTAL: " + str(allthedata[3])
 
 
 
@@ -82,10 +97,24 @@ def mathisfun():
   
 def generate():
   
-    print ("From " + launch + " to " + destination + ': ' + startmiles + " - " + onmiles) 
-    print ("(" + str(trip_a) + " miles)")
-    print (starttime + " - " + ontime + point_AB)
+    mathisfun()
+
     
+    print ("Starting miles: " + startmiles)
+    print ("Ending miles: " + homemiles)
+    print ("TOTAL: " + str(allthedata[3]) + "\n")
+    print ("From " + launch + " to " + destination + ': ' + startmiles + " - "
++ onmiles + " (" + str(allthedata[0]) + " miles) " + starttime + " - " + ontime +
+" (" + point_AB + ")" + "<- travel." + "From " + ontime + "- " + offtime + " (" + str(allthedata[2]) + ") <- onsite.")
+    print ("\n" + workperformed + "\n")
+    print ("From " + destination + " to " + launch + ': ' + onmiles + " - "
++ homemiles + " (" + str(allthedata[1]) + " miles) " + offtime + " - " + hometime +
+" (" + point_BC + ")" + "<- travel.")
+
+    
+
+     
+
 
 
 
@@ -122,3 +151,15 @@ workperformed = input('Decribe the work performed onsite \n')
 
 sheet1()
 generate()
+
+
+#this is a set of predefined variables to be used for testing porpuses
+#starttime = "13:00" 
+#ontime = "13:20"
+#offtime = "13:40"
+#hometime = "14:00"
+#startmiles = "100"
+#onmiles = "110"
+#homemiles = "120"
+#launch = "shop"
+#destination = "dog"
