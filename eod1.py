@@ -2,7 +2,7 @@
 
 import math
 
-## define functions 
+ 
 ## sheet1 will query the user for any changes that should be made to the router sheet
 
 def sheet1():
@@ -37,9 +37,9 @@ def notesheet():
     if answer == "y":
         global notes
         notes = input("Add your notes now /n")
-        mathisfun()
+        generate()
     else:
-        mathisfun()
+        generate()
 
 
 ##perform ze mathzz
@@ -55,13 +55,15 @@ def time_calc(hours1, minutes1, hours2, minutes2):
 
     trip_time = str(total_h) + " hours " +  str(total_m) + " minutes"
     return trip_time
-
+#this function does most of the calculating, including distances and calls the time_calc function to find elapsed times.
 def mathisfun():
     
     trip_a = int(onmiles) - int(startmiles)
     trip_b = int(homemiles) - int(onmiles)
     totalmiles = int(trip_a) + int(trip_b)
-    
+  
+#this takes user string inputs and converts them to formatting freindly to the time_calc
+  
     th1 = int(starttime[0:2])
     tm1 = int(starttime[3:5])
     th2 = int(ontime[0:2])
@@ -72,6 +74,7 @@ def mathisfun():
     th4 = int(hometime[0:2])
     tm4 = int(hometime[3:5])
     
+
     global point_AB
     point_AB = time_calc(th1, tm1, th2, tm2)
 
@@ -83,8 +86,10 @@ def mathisfun():
 
     global allthedata 
     allthedata = (trip_a, trip_b, time_on, totalmiles)
+    
 
 #will tally up and print some totals
+#right now this is handled by the generate function
 
 #def totals():
 #    print ("Starting miles: " + startmiles)
@@ -100,20 +105,16 @@ def generate():
     mathisfun()
 
     
-    print ("Starting miles: " + startmiles)
-    print ("Ending miles: " + homemiles)
-    print ("TOTAL: " + str(allthedata[3]) + "\n")
-    print ("From " + launch + " to " + destination + ': ' + startmiles + " - "
-+ onmiles + " (" + str(allthedata[0]) + " miles) " + starttime + " - " + ontime +
-" (" + point_AB + ")" + "<- travel." + "From " + ontime + "- " + offtime + " (" + str(allthedata[2]) + ") <- onsite.")
-    print ("\n" + workperformed + "\n")
-    print ("From " + destination + " to " + launch + ': ' + onmiles + " - "
-+ homemiles + " (" + str(allthedata[1]) + " miles) " + offtime + " - " + hometime +
-" (" + point_BC + ")" + "<- travel.")
 
-    
+    output = "Starting miles: {0} \nEnding miles: {1} \nTOTAL: {2} \n".format(startmiles, homemiles, allthedata[3])
+    output2 = "From {0} to {1}: {2} - {3} ({4} miles) {5} - {6} ({7}) <-travel".format(launch, destination, startmiles, onmiles, allthedata[0], starttime, ontime, point_AB)
+    output3 = "From {0} to {1} ({2}) <- onsite. \n\n{3}\n".format(ontime, offtime, time_on, workperformed)
+    output4 = "From {0} to {1}: {2} - {3} ({4} miles) {5} - {6} ({7}) <- travel.".format(destination, launch, onmiles, homemiles, allthedata[1], offtime, hometime, point_BC)    
 
-     
+    print (output)
+    print (output2, output3)
+    print (output4)
+         
 
 
 
@@ -150,7 +151,7 @@ hometime = input('input your home time \n')
 workperformed = input('Decribe the work performed onsite \n')
 
 sheet1()
-generate()
+
 
 
 #this is a set of predefined variables to be used for testing porpuses
@@ -163,3 +164,6 @@ generate()
 #homemiles = "120"
 #launch = "shop"
 #destination = "dog"
+#workperformed = "yaddy yaddy yadda"
+
+    
