@@ -92,17 +92,11 @@ def generate():
     mathisfun()
 
     
-
-    output = "Starting miles: {0} \nEnding miles: {1} \nTOTAL: {2} \n".format(startmiles, homemiles, allthedata[3])
-    output2 = "From {0} to {1}: {2} - {3} ({4} miles) {5} - {6} ({7}) <-travel".format(launch, destination, startmiles, onmiles, allthedata[0], starttime, ontime, point_AB)
-    output3 = "From {0} to {1} ({2}) <- onsite. \n\n{3}\n".format(ontime, offtime, time_on, workperformed)
-    output4 = "From {0} to {1}: {2} - {3} ({4} miles) {5} - {6} ({7}) <- travel.".format(destination, launch, onmiles, homemiles, allthedata[1], offtime, hometime, point_BC)    
-
-    print (output)
-    print (output2, output3)
-    print (output4)
-         
-
+    with open("eod.txt", "w") as text_file:
+        print("Starting miles: {0} \nEnding miles: {1} \nTOTAL: {2} \n".format(startmiles, homemiles, allthedata[3]), file=text_file)
+        print("From {0} to {1}: {2} - {3} ({4} miles) {5} - {6} ({7}) <-travel".format(launch, destination, startmiles, onmiles, allthedata[0], starttime, ontime, point_AB), file=text_file)
+        print("From {0} to {1} ({2}) <- onsite. \n\n{3}\n".format(ontime, offtime, time_on, workperformed), file=text_file)
+        print("From {0} to {1}: {2} - {3} ({4} miles) {5} - {6} ({7}) <- travel.".format(destination, launch, onmiles, homemiles, allthedata[1], offtime, hometime, point_BC), file=text_file)    
 
 
 
