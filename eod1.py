@@ -1,8 +1,5 @@
 ##EOD creator version 1
 
-import math
-
- 
 ## sheet1 will query the user for any changes that should be made to the router sheet
 
 def sheet1():
@@ -88,16 +85,6 @@ def mathisfun():
     allthedata = (trip_a, trip_b, time_on, totalmiles)
     
 
-#will tally up and print some totals
-#right now this is handled by the generate function
-
-#def totals():
-#    print ("Starting miles: " + startmiles)
-#    print ("Ending miles: " + homemiles)
-#    print ("TOTAL: " + str(allthedata[3])
-
-
-
 ##this is the final function, which prints everything to human freindly output
   
 def generate():
@@ -138,6 +125,10 @@ def generate():
 
 #def main():
 #    data_grab()
+#this serves as the main operation of the program. This first gathers input from the user, then calls the sheet1 function, which calls
+#sheet2, which calls sheet3, which calls generate, which is the actual output. So from here, it starts a chain of functions that
+#form the meat of the program. It is my intention to turn this section into a seperate function, and probably use classes to eliminate
+#all the global vars. I also want to add error checking to ensure input is in the right format.
 
 launch = input('input launch point \n')
 startmiles = input('input your starting mileage \n')
