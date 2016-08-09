@@ -5,6 +5,7 @@ def main():
     notes = notesheet()
     maths = mathisfun(usrinput)
     generate(usrinput, maths)
+    sheets(router, contact, notes)
     
     
     
@@ -31,7 +32,13 @@ def sheet1():
     
     if answer == "y": 
     
-        rsheet = input("Enter your routersheet info")
+        info = input("Enter your routersheet info \n")
+        rsheet = ("ADD TO ROUTERSHEET: \n" + info)
+        return rsheet
+
+    else:
+
+        rsheet = ""
         return rsheet
 
 
@@ -42,19 +49,31 @@ def sheet2():
     
     if answer == "y":
       
-        csheet = input("Enter your contactsheet info ")
+        info = input("Enter your contactsheet info \n")
+        csheet = ("ADD TO CONTACTSHEET: \n" + info)
+        return csheet
+    
+    else: 
+        
+        csheet = ""
         return csheet
 
    
 def notesheet():
-    print ("Are there any additional notes you would like to add?")
+    print ("Are there any additional notes you would like to add? ")
     answer = input("y/n? ").lower()
     
     if answer == "y":
         
-        notes = input("Add your notes now /n")
+        info = input("Add your notes now \n")
+        notes = ("Additional notes: \n" + info)
         return notes
-   
+    
+    else: 
+        
+        csheet = ""
+        return csheet
+
 def time_calc(hours1, minutes1, hours2, minutes2):
     total_h = hours2 - hours1
     total_m = minutes2 - minutes1
@@ -111,6 +130,13 @@ def generate(tuple1, tuple2):
         print("From {0} to {1}: {2} - {3} ({4} miles) {5} - {6} ({7}) <-travel".format(tuple1[0], tuple1[3], tuple1[1], tuple1[5], tuple2[0], tuple1[2], tuple1[4], tuple2[4]), file=text_file)
         print("From {0} to {1} ({2}) <- onsite. \n\n{3}\n".format(tuple1[4], tuple1[6], tuple2[6], tuple1[9]), file=text_file)
         print("From {0} to {1}: {2} - {3} ({4} miles) {5} - {6} ({7}) <- travel.".format(tuple1[3], tuple1[0], tuple1[5], tuple1[7], tuple2[1], tuple1[6], tuple1[8], tuple2[5]), file=text_file)    
+
+def sheets(sheet1, sheet2, sheet3):
+    
+    with open("eod.txt", "a") as text_file:
+        print(sheet1, file=text_file)
+        print(sheet2, file=text_file)
+        print(sheet3, file=text_file)
 
 main()
 
