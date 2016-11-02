@@ -36,11 +36,7 @@ def sheet1():
         rsheet = ("ADD TO ROUTERSHEET: \n" + info)
         return rsheet
 
-    else:
-
-        rsheet = ""
-        return rsheet
-
+   
 
 #this next function looks querys the user for any info that needs to be added to the contacts sheet
 def sheet2():
@@ -53,10 +49,7 @@ def sheet2():
         csheet = ("ADD TO CONTACTSHEET: \n" + info)
         return csheet
     
-    else: 
-        
-        csheet = ""
-        return csheet
+
 
    
 def notesheet():
@@ -68,11 +61,7 @@ def notesheet():
         info = input("Add your notes now \n")
         notes = ("Additional notes: \n" + info)
         return notes
-    
-    else: 
-        
-        csheet = ""
-        return csheet
+  
 
 def time_calc(hours1, minutes1, hours2, minutes2):
     total_h = hours2 - hours1
@@ -84,7 +73,9 @@ def time_calc(hours1, minutes1, hours2, minutes2):
 
     trip_time = str(total_h) + " hours " +  str(total_m) + " minutes"
     return trip_time
+
 #this function does most of the calculating, including distances and calls the time_calc function to find elapsed times.
+
 def mathisfun(data):
 
     onmiles = data[5]
